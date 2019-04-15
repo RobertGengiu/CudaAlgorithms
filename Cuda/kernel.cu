@@ -7,14 +7,16 @@ using namespace std;
 
 __global__ void AddIntsCuda(int *a, int *b)
 {
-	a[0] += b[0];
+	int i = threadIdx.x;
+	a[i] += b[i];
 }
 
 __global__ void InterChangeCuda(int *a, int *b)
 {
-	int temp = a[0];
-	a[0] = b[0];
-	b[0] = a[0];
+	 int i = threadIdx.x;
+	int temp = a[i];
+	a[i] = b[i];
+	b[i] = a[i];
 }
 
 
