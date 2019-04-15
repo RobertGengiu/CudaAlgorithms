@@ -10,6 +10,14 @@ __global__ void AddIntsCuda(int *a, int *b)
 	a[0] += b[0];
 }
 
+__global__ void InterChangeCuda(int *a, int *b)
+{
+	int temp = a[0];
+	a[0] = b[0];
+	b[0] = a[0];
+}
+
+
 int main() {
 	int a = 5, b = 9;
 	int *d_a, *d_b;
